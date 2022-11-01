@@ -1,6 +1,10 @@
-h1 {
-  display: flex;
-}
 body{
   background-color: lightgray;
+}
+
+.title {
+  font-family: 'Rock Salt', cursive, Arial, Helvetica, sans-serif;
+}
+
+.staticMap {
 }
