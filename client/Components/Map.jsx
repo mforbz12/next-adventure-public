@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-
-
+import GoogleMapReact from 'google-map-react';
 
 class Map extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this
   };
 
-  handleSubmit() {
-    console.log("Hey!")
-  };
+// create onclick method to save things to the database
+// refresh map after event is done
 
   render() {
-    let imgSrc = 'https://www.freeworldmaps.net/printable/worldmap-countries-hd.jpg';
     return (
-      <div className ="map">
-        <h1 className ="title">Welcome to your Next Adventure</h1>
-        <button className="add" onClick={this.handleSubmit}>Add New Adventure</button>
-        <img className ="staticMap" src={imgSrc} alt='world map' />
+      <div style={{ height: '100vh', width: '100%' }}>
+        <h1>Welcome to your Next Adventure</h1>
+        <GoogleMapReact
+          bootstrapURLKeys={{key: "AIzaSyDZuksUvhreR3xxfSZrKUpJeUYaKroRGW8"}}
+          center={{lat:47.596, lng:-122.295}}
+          zoom={10}
+          onClick={this.handleClick}
+        />
+          // create a list that has lat lng and info
+          // use the list to display markers
+
+          // add a for loop here that fetch info from database
+          // and create the markers
       </div>
     )
   }

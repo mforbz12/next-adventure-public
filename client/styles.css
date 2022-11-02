@@ -2,7 +2,7 @@ body{
   background-color: lightgray;
 }
 
-.title {
+h1 {
   color: rgb(41,41,41);
   font-family: 'Rock Salt', cursive, Arial, Helvetica, sans-serif;
 }

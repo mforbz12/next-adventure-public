@@ -27,8 +27,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@googlemaps/google-maps-services-js": "^3.3.16",
     "express": "^4.18.2",
+    "google-map-react": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
