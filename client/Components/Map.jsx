@@ -1,27 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx';
 import { nanoid } from 'nanoid';
+import Modal from './Modal.jsx';
 
 class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      coords: []
+      coords: [],
+      modalDisplay: false
     }
     this.handleClick = this.handleClick.bind(this);
   };
-
 // create onclick method to save things to the database
 // refresh map after event is done
+
+  // openModal() {
+  //   this.setState({modalDisplay: true})
+  // }
+
   handleClick(data) {
     //takes lat and lng from map
+    this.setState({modalDisplay: true});
     let newCoords = {lat: data.lat, lng: data.lng};
     let coords = this.state.coords;
     coords.push(newCoords)
     //stores the coordinates into state
     this.setState({coords: coords});
+    //window.alert('me first');
+    console.log(this.state);
   }
+
+
 
   render() {
     return (
@@ -30,9 +41,10 @@ class Map extends Component {
         <GoogleMapReact
           bootstrapURLKeys={{key: "AIzaSyDZuksUvhreR3xxfSZrKUpJeUYaKroRGW8"}}
           center={{lat:47.596, lng:-122.295}}
-          zoom={10}
+          zoom={8}
           onClick={this.handleClick}
         >
+        <Modal display={this.state.modalDisplay}/>
         {this.state.coords.map((individual) => {
           return <Marker key={nanoid()} lat={individual.lat} lng={individual.lng}/>
         })}
