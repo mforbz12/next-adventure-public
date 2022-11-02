@@ -2,14 +2,12 @@ import React, { Component, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx';
 import { nanoid } from 'nanoid';
-import Modal from './Modal.jsx';
 
 class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
       coords: [],
-      modalDisplay: false
     }
     this.handleClick = this.handleClick.bind(this);
   };
@@ -20,18 +18,16 @@ class Map extends Component {
   //   this.setState({modalDisplay: true})
   // }
 
-  handleClick(data) {
+  handleClick(event) {
     //takes lat and lng from map
-    this.setState({modalDisplay: true});
-    let newCoords = {lat: data.lat, lng: data.lng};
+    let newCoords = {lat: event.lat, lng: event.lng};
     let coords = this.state.coords;
     coords.push(newCoords)
     //stores the coordinates into state
     this.setState({coords: coords});
     //window.alert('me first');
-    console.log(this.state);
+    //console.log(this.state);
   }
-
 
 
   render() {
@@ -44,7 +40,6 @@ class Map extends Component {
           zoom={8}
           onClick={this.handleClick}
         >
-        <Modal display={this.state.modalDisplay}/>
         {this.state.coords.map((individual) => {
           return <Marker key={nanoid()} lat={individual.lat} lng={individual.lng}/>
         })}
