@@ -22,6 +22,7 @@ class Modal extends Component {
     let recommendation = document.getElementById(`${this.props.rand}inMessage`).value;
     let recommended_by = document.getElementById(`${this.props.rand}inRec`).value;
     const body = {
+      rand: this.props.rand,
       lat: this.props.lat,
       lng: this.props.lng,
       type,
@@ -39,8 +40,7 @@ class Modal extends Component {
   }
 
   removeLocation() {
-    alert("Delete")
-    this.props.deleteEl(this.props.lat, this.props.lng);
+    this.props.deleteEl();
   }
 
   render() {
@@ -59,7 +59,7 @@ class Modal extends Component {
         <label htmlFor="recommendedBy">Recommended by: </label>
         <input type='text' id={`${this.props.rand}inRec`} placeholder="unknown" name='recommended by: '></input>
         <button type='button' className='add' onClick={this.saveLocation}> + Add </button>
-        <button type='button' className='remove' onClick={this.removeLocation}> - Remove </button>
+        <button type='button' className='cancel' onClick={this.removeLocation}>Cancel </button>
       </div>
     )
   }

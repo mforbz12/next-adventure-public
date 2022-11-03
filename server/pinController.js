@@ -8,12 +8,14 @@ pinController.saveLocation = (req, res, next) => {
     lng,
     type,
     recommendation,
-    recommended_by
+    recommended_by,
+    rand
   } = req.body;
   if (recommendation !== undefined) {
     Pin.create({
       lat,
       lng,
+      rand,
       type,
       recommendation,
       recommended_by

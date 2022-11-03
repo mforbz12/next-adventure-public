@@ -5,6 +5,7 @@ const pinSchema = new Schema({
   lat: {type: Number, required:true},
   lng: {type: Number, required: true},
   type: {type: String},
+  rand: {type: String},
   recommendation: {type: String, required: true},
   recommended_by: {type: String}
 });

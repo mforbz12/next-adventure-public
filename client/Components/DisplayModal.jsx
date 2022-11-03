@@ -13,6 +13,8 @@ class DisplayModal extends Component {
           {this.props.rec}
           <h4>Recommended By:</h4>
           {this.props.rec_by}
+          <button>Remove</button>
+          <button>Archive</button>
         </div>
       )
     }

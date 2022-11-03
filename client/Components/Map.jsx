@@ -11,28 +11,32 @@ class Map extends Component {
       coords: [],
     }
     this.handleClick = this.handleClick.bind(this);
+    this.deleteMarker = this.deleteMarker.bind(this);
   };
-// create onclick method to save things to the database
-// refresh map after event is done
 
-  // openModal() {
-  //   this.setState({modalDisplay: true})
-  // }
-
+  //creates and stores state once a marker is clicked
   handleClick(event) {
     //takes lat and lng from map
-    let newCoords = {lat: event.lat, lng: event.lng};
+    let rand = nanoid();
+    let newCoords = {lat: event.lat, lng: event.lng, rand: rand};
     let coords = this.state.coords;
     coords.push(newCoords)
     //stores the coordinates into state
     this.setState({coords: coords});
   }
 
+  //will remove a marker that doesn't have stored data when clicks "cancel"
+  deleteMarker() {
+    let newState = [...this.state.coords]
+    //console.log(newState)
+    // for (let i = 0; i < newState.length; i++) {
+    //   if (newState[i].rand === num) {
+    //     console.log(newState[i]);
+    newState.pop()
+    this.setState({coords: newState})
+    }
 
-  deleteMarker(childLat, childLng) {
-    console.log(childLat,childLng)
-  }
-
+  //receives information from the database that will then render stored markers on page
   componentDidMount() {
     fetch('/api/pins')
       .then(res => res.json())
@@ -44,17 +48,24 @@ class Map extends Component {
             lng: pins[key].lng,
             rec: pins[key].recommendation,
             rec_by: pins[key].recommended_by,
-            type: pins[key].type
+            type: pins[key].type,
+            rand: pins[key].rand
           })
           this.state.coords.push(newCoords)
         }
         let coords = this.state.coords;
         this.setState({coords})
         //console.log(this.state.coords)
-        console.log(this.state.coords[9])
+        //console.log(this.state.coords[9])
         })
       .catch(err => console.log('Pins.componentDidMount: ERROR: ' + err))
-    }
+  }
+
+  findAndDelete(num) {
+
+  }
+
+
 
   render() {
     return (
@@ -68,7 +79,7 @@ class Map extends Component {
         >
         {this.state.coords.map((individual) => {
           return <Marker
-          rand={nanoid()}
+          rand={individual.rand}
           lat={individual.lat}
           rec={individual.rec}
           rec_by={individual.rec_by}

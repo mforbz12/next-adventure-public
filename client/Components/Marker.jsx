@@ -15,14 +15,11 @@ class Marker extends Component {
   //this function changes the display state back and forth on button click
   clickButton(event) {
     this.setState({display: !this.state.display})
-
   }
 
 
 
-
-
-  //if the display state is set to true, then it will render the modal component
+  //will either prompt for input or display stored data based on state
   changeDisplay() {
     if(this.state.display && this.props.rec === undefined){
       //then render the modal component that prompts for inputs
