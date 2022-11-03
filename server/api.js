@@ -17,8 +17,11 @@ router.get('/pins', pinController.getLocations, (req,res) =>
 )
 
 //deletes a recommendation via delete request
-router.delete('/delete', (req, res) =>
-  res.status(200).json({})
+router.delete('/delete/:id', pinController.deleteLocation, (req, res) =>{
+  // DELETE : http://localhost:8080/api/delete -> Firing console below
+  console.log('succesful delete')
+  return res.status(200).json('deleted')
+}
 );
 
 

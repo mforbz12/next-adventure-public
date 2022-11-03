@@ -51,4 +51,15 @@ pinController.getLocations = (req, res, next) => {
   })
 };
 
+pinController.deleteLocation = (req, res, next) => {
+  const toDelete = req.params.id
+  Pin.deleteOne({rand: toDelete}, (err) => {
+    if (err) return next({
+      log: 'deleteLocation',
+      message: {err: 'error in deleting location'}
+    });
+  });
+  return next();
+}
+
 module.exports = pinController;

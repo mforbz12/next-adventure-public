@@ -29,7 +29,7 @@ class Modal extends Component {
       recommendation,
       recommended_by,
     }
-    console.log('body:', body)
+    //console.log('body:', body)
     fetch('http://localhost:3000/api/add', {
       method: 'POST',
       headers: {

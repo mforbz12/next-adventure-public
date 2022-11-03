@@ -21,6 +21,7 @@ class Marker extends Component {
 
   //will either prompt for input or display stored data based on state
   changeDisplay() {
+
     if(this.state.display && this.props.rec === undefined){
       //then render the modal component that prompts for inputs
       return <Modal
@@ -35,15 +36,31 @@ class Marker extends Component {
       return <DisplayModal
       rec={this.props.rec}
       rec_by={this.props.rec_by}
-      type={this.props.type}/>
+      type={this.props.type}
+      rand={this.props.rand}
+      parentCallback={this.clickButton}
+      />
     }
   }
 
-
   render() {
+    let newColor;
+    if (this.props.type === 'Food') {
+      newColor = 'blue'
+    } else if (this.props.type === 'Outdoor Activity') {
+      newColor = 'green'
+    } else if (this.props.type === 'Accommodation') {
+      newColor = 'red'
+    } else if (this.props.type === 'Landmarks') {
+      newColor = 'yellow'
+    } else if (this.props.type === 'Tourist Attraction') {
+      newColor = 'purple'
+    } else {
+      newColor = 'dark gray'
+    }
     return (
       <div>
-        <button className="marker" onClick={this.clickButton}/>
+        <button style={{backgroundColor: newColor}} className='marker' onClick={this.clickButton}/>
         {this.changeDisplay()}
       </div>
     )

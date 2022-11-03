@@ -61,10 +61,6 @@ class Map extends Component {
       .catch(err => console.log('Pins.componentDidMount: ERROR: ' + err))
   }
 
-  findAndDelete(num) {
-
-  }
-
 
 
   render() {
@@ -86,6 +82,7 @@ class Map extends Component {
           type={individual.type}
           lng={individual.lng}
           deleteEl={this.deleteMarker}
+          deleteDB={this.findAndDelete}
           />
         })}
         </GoogleMapReact>
