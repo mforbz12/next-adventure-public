@@ -36,6 +36,9 @@ class Modal extends Component {
     })
   }
 
+  removeLocation(event) {
+  }
+
 
 
   render() {
@@ -48,6 +51,7 @@ class Modal extends Component {
         <label htmlFor="recommendedBy">Recommended by: </label>
         <input type='text' id={`${this.props.rand}inRec`} name='recommended by: '></input>
         <button type='button' className='add' onClick={this.saveLocation}> + Add </button>
+        <button type='button' className='remove' onClick={this.removeLocation}> - Remove </button>
       </div>
     )
   }

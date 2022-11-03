@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import { Link } from 'react-dom';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx';
 import { nanoid } from 'nanoid';
@@ -28,7 +29,20 @@ class Map extends Component {
   }
 
   componentDidMount() {
-  }
+    fetch('/api/pins')
+      .then(res => res.json())
+      .then((pins) => {
+        for (const key in pins) {
+          let newCoords = ({lat: pins[key].lat, lng: pins[key].lng})
+          this.state.coords.push(newCoords)
+        }
+        let coords = this.state.coords;
+        this.setState({coords})
+        //console.log(this.state.coords)
+        //console.log(this.state.coords[9])
+        })
+      .catch(err => console.log('Pins.componentDidMount: ERROR: ' + err))
+    }
 
   render() {
     return (
