@@ -6,6 +6,7 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.saveLocation = this.saveLocation.bind(this);
+    this.removeLocation = this.removeLocation.bind(this);
   }
 
   //this func prevents propogation from clicks on the input field
@@ -14,6 +15,7 @@ class Modal extends Component {
   };
 
   saveLocation(event) {
+    //references the clickButton func that changes the display state
     this.props.parentCallback();
 
     let type = document.getElementById(`${this.props.rand}inType`).value;
@@ -36,20 +38,26 @@ class Modal extends Component {
     })
   }
 
-  removeLocation(event) {
+  removeLocation() {
+    alert("Delete")
+    this.props.deleteEl(this.props.lat, this.props.lng);
   }
-
-
 
   render() {
     return (
       <div className='modal' onClick={this.ignoreClick}>
         <label htmlFor="type">Type: </label>
-        <input type='text' id={`${this.props.rand}inType`} name='type:'></input>
+        <select type='text' id={`${this.props.rand}inType`} name='type:'>
+          <option>Food</option>
+          <option>Outdoor Activity</option>
+          <option>Landmarks</option>
+          <option>Tourist Attraction</option>
+          <option>Accommodation</option>
+        </select>
         <label htmlFor="recommendation">Recommendation: </label>
         <input type='text' id={`${this.props.rand}inMessage`} name='recommendation: '></input>
         <label htmlFor="recommendedBy">Recommended by: </label>
-        <input type='text' id={`${this.props.rand}inRec`} name='recommended by: '></input>
+        <input type='text' id={`${this.props.rand}inRec`} placeholder="unknown" name='recommended by: '></input>
         <button type='button' className='add' onClick={this.saveLocation}> + Add </button>
         <button type='button' className='remove' onClick={this.removeLocation}> - Remove </button>
       </div>

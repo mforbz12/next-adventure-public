@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './Modal.jsx';
+import DisplayModal from './DisplayModal.jsx';
 
 class Marker extends Component {
   constructor(props) {
@@ -17,16 +18,30 @@ class Marker extends Component {
 
   }
 
+
+
+
+
   //if the display state is set to true, then it will render the modal component
   changeDisplay() {
-    //if display is true and message = ''
-    if(this.state.display){
+    if(this.state.display && this.props.rec === undefined){
       //then render the modal component that prompts for inputs
-      return <Modal lat={this.props.lat} lng={this.props.lng} rand={this.props.rand} parentCallback={this.clickButton}/>
+      return <Modal
+      lat={this.props.lat}
+      lng={this.props.lng}
+      rec={this.props.rec}
+      rand={this.props.rand}
+      deleteEl={this.props.deleteEl}
+      parentCallback={this.clickButton}/>
     }
-    //if display is true and message != ''
-      //then render the modal component that displays stored data
+    if (this.state.display && this.props.rec) {
+      return <DisplayModal
+      rec={this.props.rec}
+      rec_by={this.props.rec_by}
+      type={this.props.type}/>
+    }
   }
+
 
   render() {
     return (

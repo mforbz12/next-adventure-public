@@ -28,18 +28,30 @@ class Map extends Component {
     this.setState({coords: coords});
   }
 
+
+  deleteMarker(childLat, childLng) {
+    console.log(childLat,childLng)
+  }
+
   componentDidMount() {
     fetch('/api/pins')
       .then(res => res.json())
       .then((pins) => {
         for (const key in pins) {
-          let newCoords = ({lat: pins[key].lat, lng: pins[key].lng})
+          //need to pull all data (rec by and type if you want to be able to display it on display modal)
+          let newCoords = ({
+            lat: pins[key].lat,
+            lng: pins[key].lng,
+            rec: pins[key].recommendation,
+            rec_by: pins[key].recommended_by,
+            type: pins[key].type
+          })
           this.state.coords.push(newCoords)
         }
         let coords = this.state.coords;
         this.setState({coords})
         //console.log(this.state.coords)
-        //console.log(this.state.coords[9])
+        console.log(this.state.coords[9])
         })
       .catch(err => console.log('Pins.componentDidMount: ERROR: ' + err))
     }
@@ -55,7 +67,15 @@ class Map extends Component {
           onClick={this.handleClick}
         >
         {this.state.coords.map((individual) => {
-          return <Marker rand={nanoid()} lat={individual.lat} lng={individual.lng}/>
+          return <Marker
+          rand={nanoid()}
+          lat={individual.lat}
+          rec={individual.rec}
+          rec_by={individual.rec_by}
+          type={individual.type}
+          lng={individual.lng}
+          deleteEl={this.deleteMarker}
+          />
         })}
         </GoogleMapReact>
       </div>
