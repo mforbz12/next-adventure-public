@@ -25,10 +25,10 @@ class Map extends Component {
     coords.push(newCoords)
     //stores the coordinates into state
     this.setState({coords: coords});
-    //window.alert('me first');
-    //console.log(this.state);
   }
 
+  componentDidMount() {
+  }
 
   render() {
     return (
@@ -41,7 +41,7 @@ class Map extends Component {
           onClick={this.handleClick}
         >
         {this.state.coords.map((individual) => {
-          return <Marker key={nanoid()} lat={individual.lat} lng={individual.lng}/>
+          return <Marker rand={nanoid()} lat={individual.lat} lng={individual.lng}/>
         })}
         </GoogleMapReact>
       </div>

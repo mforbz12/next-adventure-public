@@ -16,7 +16,7 @@ h1 {
 }
 .marker {
   position: "absolute";
-  background: rgb(41,41,41);
+  background: rgb(41, 41, 41);
   border-radius: 100%;
   padding: 10px 10px;
   border: none;

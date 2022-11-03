@@ -1,12 +1,15 @@
-cpmst mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pinSchema = new Schema({
-  city: {type: String, required:true},
-  lng: {type: String, required: true},
+  lat: {type: Number, required:true},
+  lng: {type: Number, required: true},
   type: {type: String},
   recommendation: {type: String, required: true},
   recommended_by: {type: String}
 });
 
-module.exports = mongoose.model('pin', pinSchema);
+const Pin = mongoose.model('pin', pinSchema);
+module.exports = {
+  Pin,
+}

@@ -5,27 +5,30 @@ class Marker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: 'none'
+      display: false
     }
     this.clickButton = this.clickButton.bind(this);
   }
 
-//   componentDidMount() {
-//     //window.addEventListener('load', alert('bazinga'));
-//  };
+
+  //this function changes the display state back and forth on button click
   clickButton(event) {
-    console.log('click on marker')
-    this.setState({display: this.state.display == 'none' ? 'block' : 'none'})
-    // this.state.display = !this.state.display
-    // event.stopPropagation();
+    this.setState({display: !this.state.display})
+
+  }
+
+  //if the display state is set to true, then it will render the modal component
+  changeDisplay() {
+    if(this.state.display){
+      return <Modal lat={this.props.lat} lng={this.props.lng} rand={this.props.rand} parentCallback={this.clickButton}/>
+    }
   }
 
   render() {
     return (
       <div>
-        <button className="marker" onClick={this.clickButton}>
-        </button>
-        <Modal display={this.state.display}/>
+        <button className="marker" onClick={this.clickButton}/>
+        {this.changeDisplay()}
       </div>
     )
   }
