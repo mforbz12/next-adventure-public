@@ -19,19 +19,21 @@ class DisplayModal extends Component {
       method: 'DELETE',
       body: JSON.stringify(randId)
     })
-    
+
   }
 
     render() {
       return(
         <div className='displayModal' onClick={this.ignoreClick}>
           <h4>Recommendation:</h4>
-          {this.props.rec}
+          <p>{this.props.rec}</p>
           <h4>Recommended By:</h4>
-          {this.props.rec_by}
-          <button onClick={this.deletePerm}>Remove</button>
-          <button>Archive </button>
-          <button>Edit </button>
+          <p>{this.props.rec_by}</p>
+          <button className='editBtn'>Edit </button>
+          <button className='arcBtn'>Archive </button>
+          <button className='remBtn' onClick={this.deletePerm}>Remove</button>
+
+
         </div>
       )
     }

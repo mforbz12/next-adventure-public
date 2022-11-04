@@ -1,20 +1,76 @@
 body{
-  background-color: lightgray;
+  background-color: rgb(210, 210, 210);
 }
 
 h1 {
-  color: rgb(101, 101, 101);
+  color: rgb(81, 81, 81);
+  text-align: center;
   font-family: 'Rock Salt', cursive, Arial, Helvetica, sans-serif;
 }
+
+/* MAKING A NEW LOCATION PIN */
+.modal {
+  padding-top: 15px;
+  padding-left: 20px;
+  justify-items: space-around;
+  display: block;
+  justify-content: center;
+  background-color: lightgray;
+  width: 225px;
+  height: 365px;
+  border-radius: 6px;
+  border: solid 1px darkgray;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
 .add {
   display: inline;
-  margin-top: 1rem;
+  margin-top: 10px;
   width: 10rem;
   padding: .5rem;
-  background-color: rgb(87, 136, 181);
+  background-color: initial;
+  color: lightgray;
+  background-image: linear-gradient(rgb(141, 141, 141), #464d55);
   border-radius: 4px;
+  font-family: 'M PLUS 1p', sans-serif;
   border: solid 1px rgb(41, 41, 41);
 }
+
+.modal input {
+  border-radius: 5px;
+  width: 200px;
+  border: 1px solid rgb(195, 194, 194);
+  margin-bottom: 10px;
+}
+
+.modal select {
+  border-radius: 5px;
+  height: 28px;
+  margin-bottom: 20px;
+}
+.recByBox {
+  height: 30px;
+}
+
+.modal label {
+  font-size: 18px;
+  color:rgb(81, 81, 81)
+}
+.recBox {
+  height: 100px;
+  overflow-wrap: normal;
+}
+
+.cancel {
+  margin-top: 10px;
+  width: 10rem;
+  height: 30px;
+  color: rgb(161, 161, 161);
+  border-radius: 4px;
+  border: solid 1px darkgray
+
+}
+
 .marker {
   position: "absolute";
   background: rgb(90, 90, 90);
@@ -24,14 +80,145 @@ h1 {
 }
 
 
-.modal {
-  background-color: blue;
-  width: 20%;
-  height: 20%;
+
+h4 {
+  font-family: Rock Salt;
+  color:#464d55
+}
+p {
+  color: rgb(42, 42, 42);
+}
+.displayModal {
+  background-image: linear-gradient(rgb(189, 183, 183), #898989);  display: block;
+  font-size: 18px;
+  padding-left: 20px;
+  display: block;
+  justify-content: center;
+  background-color: lightgray;
+  width: 10rem;
+  height: 17rem;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.editBtn {
+  border-radius: 5px;
+  border: 1px solid rgb(148, 148, 148);
+  color:rgb(41, 41, 41);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.remBtn {
+  border-radius: 5px;
+  margin: 6px;
+  margin-top: 0px;
+  border: 1px solid rgb(148, 148, 148);
+  color:rgb(151, 151, 151);
+  background-color: #464d55;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.arcBtn{
+  border-radius: 5px;
+  margin: 8px;
+  border: 1px solid rgb(148, 148, 148);
+  color:rgb(41, 41, 41);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.displayModal {
-  background-color: lightgrey;
-  width:10rem;
-  font-size: 20px;
+.filter {
+  margin: 10px;
+  color: #464d55;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-between;
 }
+.filter button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-left: 15px;
+  border-radius: 10px;
+  background-image: linear-gradient(rgb(189, 183, 183), #898989);
+  border: 1px solid darkgray;
+}
+
+.filter input {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-left: 10px;
+  height: 35px;
+  width: 405px;
+}
+.filter select {
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  text-align: center;
+  color: #464d55;
+  margin-left: 10px;
+
+}
+
+
+
+
+
+/*
+
+.button-84 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  height: 52px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-84:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.button-84:active {
+  outline: 0;
+}
+
+.button-84:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .button-84 {
+    height: 48px;
+  }
+}  */

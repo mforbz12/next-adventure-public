@@ -12,6 +12,7 @@ class Map extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.deleteMarker = this.deleteMarker.bind(this);
+    this.filterResults = this.filterResults.bind(this);
   };
 
   //creates and stores state once a marker is clicked
@@ -61,12 +62,29 @@ class Map extends Component {
       .catch(err => console.log('Pins.componentDidMount: ERROR: ' + err))
   }
 
+  filterResults(event) {
+    let filterBy = document.getElementById('searchSelection').value;
+    let filterWord = document.getElementById('searchbar').value;
+
+
+  }
 
 
   render() {
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '78vh', width: '100%' }}>
         <h1>Welcome to your Next Adventure</h1>
+        <div className='filter'>
+          <label name=''>Filter By:</label>
+          <select id='searchSelection'>
+            <option>All</option>
+            <option>Type</option>
+            <option>Recommended By</option>
+            <option>Keyword</option>
+          </select>
+          <input type="text" id="searchbar" size="20"></input>
+          <button id='explore' onClick={this.filterResults}>Explore</button>
+        </div>
         <GoogleMapReact
           bootstrapURLKeys={{key: "AIzaSyDZuksUvhreR3xxfSZrKUpJeUYaKroRGW8"}}
           center={{lat:47.596, lng:-122.295}}

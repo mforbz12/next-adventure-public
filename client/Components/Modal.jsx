@@ -55,9 +55,9 @@ class Modal extends Component {
           <option>Accommodation</option>
         </select>
         <label htmlFor="recommendation">Recommendation: </label>
-        <input type='text' id={`${this.props.rand}inMessage`} name='recommendation: '></input>
+        <input type='text' className="recBox" id={`${this.props.rand}inMessage`} name='recommendation: '></input>
         <label htmlFor="recommendedBy">Recommended by: </label>
-        <input type='text' id={`${this.props.rand}inRec`} placeholder="unknown" name='recommended by: '></input>
+        <input type='text' className='recByBox' id={`${this.props.rand}inRec`} placeholder="unknown" name='recommended by: '></input>
         <button type='button' className='add' onClick={this.saveLocation}> + Add </button>
         <button type='button' className='cancel' onClick={this.removeLocation}>Cancel </button>
       </div>
