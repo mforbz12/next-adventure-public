@@ -2,8 +2,12 @@ const express= require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
-const mongoURI = 'mongodb+srv://mforbes12:test@cluster0.2lpt5e6.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = '';
 const apiRouter = require('./api');
+//allows cors
+var cors = require('cors')
+app.use(cors())
+
 //connects to the database
 mongoose.connect(mongoURI)
   .then(() => {
@@ -15,7 +19,7 @@ mongoose.connect(mongoURI)
 
 //handle parsing request body
 app.use(express.json());
-app.use(express.urlencoded({enxtended: true}));
+app.use(express.urlencoded({extended: true}));
 
 
 //uncomment below to confirm message log to localhost 3000

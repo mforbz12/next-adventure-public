@@ -8,13 +8,20 @@ router.get('/', (req, res) =>
 );
 
 //adds new recommendation via post request
-router.post('/add', (req, res) =>
-  res.status(200).json({})
+router.post('/add', pinController.saveLocation, (req, res) =>
+  res.status(200)
 );
 
+router.get('/pins', pinController.getLocations, (req,res) =>
+  res.status(200).json({...res.locals.foundPins})
+)
+
 //deletes a recommendation via delete request
-router.delete('/delete', (req, res) =>
-  res.status(200).json({})
+router.delete('/delete/:id', pinController.deleteLocation, (req, res) =>{
+  // DELETE : http://localhost:8080/api/delete -> Firing console below
+  console.log('succesful delete')
+  return res.status(200).json('deleted')
+}
 );
 
 

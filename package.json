@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"cross-env NODE_ENV=development nodemon server/server.js\" ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"cross-env NODE_ENV=development nodemon server/server.js\" "
   },
   "keywords": [],
   "author": "",
@@ -27,8 +26,10 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@googlemaps/google-maps-services-js": "^3.3.16",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "google-map-react": "^2.2.0",
+    "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
