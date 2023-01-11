@@ -2,9 +2,9 @@ const express= require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
-const mongoURI = 'mongodb+srv://mforbes12:test@cluster0.2lpt5e6.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = '';
 const apiRouter = require('./api');
-//allows cors 
+//allows cors
 var cors = require('cors')
 app.use(cors())
 

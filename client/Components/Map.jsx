@@ -29,10 +29,6 @@ class Map extends Component {
   //will remove a marker that doesn't have stored data when clicks "cancel"
   deleteMarker() {
     let newState = [...this.state.coords]
-    //console.log(newState)
-    // for (let i = 0; i < newState.length; i++) {
-    //   if (newState[i].rand === num) {
-    //     console.log(newState[i]);
     newState.pop()
     this.setState({coords: newState})
     }
@@ -86,7 +82,7 @@ class Map extends Component {
           <button id='explore' onClick={this.filterResults}>Explore</button>
         </div>
         <GoogleMapReact
-          bootstrapURLKeys={{key: "AIzaSyDZuksUvhreR3xxfSZrKUpJeUYaKroRGW8"}}
+          bootstrapURLKeys={{key: ""}}
           center={{lat:47.596, lng:-122.295}}
           zoom={8}
           onClick={this.handleClick}
@@ -105,8 +101,5 @@ class Map extends Component {
         })}
         </GoogleMapReact>
       </div>
-    )
-  }
-}
 
 export default Map;
